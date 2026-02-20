@@ -19,6 +19,10 @@ resource "azurerm_linux_web_app" "app" {
     }
   }
 
+  app_settings = {
+    "ConnectionStrings__DefaultConnection" = var.sql_connection_string
+  }
+
   connection_string {
     name  = "DefaultConnection"
     type  = "SQLAzure"
